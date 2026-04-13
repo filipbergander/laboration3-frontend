@@ -27,3 +27,41 @@ nav {
 #current-page {
     background-color: rgb(255, 255, 255);
 }
+
+@media screen and (max-width: 768px) {
+    nav {
+        a {
+            padding: 0.8em;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    header {
+        padding: 0.5em;
+    }
+    nav {
+        li {
+            margin: 0 0.5em;
+        }
+        a {
+            font-size: 1em;
+            padding: 0.5em;
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+    header {
+        padding: 0.2em;
+    }
+    nav {
+        li {
+            margin: 0 0.3em;
+        }
+        a {
+            font-size: 0.9em;
+            padding: 0.3em;
+        }
+    }
+}

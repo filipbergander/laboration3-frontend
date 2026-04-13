@@ -1,4 +1,6 @@
 @use 'base/base';
 @use 'base/footer';
-@use 'base/add';
+@use 'pages/add';
 @use 'base/header';
+@use 'pages/about';
+@use 'pages/cv';
