@@ -101,7 +101,7 @@ form button:active {
 
 @media screen and (max-width: 500px) {
     .add-main {
-        padding: 2em;
+        padding: 1em;
     }
     form div {
         width: 95%;
@@ -115,6 +115,9 @@ form button:active {
 }
 
 @media screen and (max-width: 370px) {
+    .add-main {
+        padding: 0.5em;
+    }
     header {
         padding: 0.2em;
     }
@@ -124,7 +127,13 @@ form button:active {
         }
         a {
             font-size: 0.9em;
-            padding: 0.3em;
+            padding: 0.1em;
         }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .add-main {
+        padding: 0em;
     }
 }

@@ -5,17 +5,20 @@
     }
 }
 
-#experience-list {}
-
 .experience-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: left;
-    margin-bottom: 2em;
+    margin-bottom: 2.5em;
     .span-description {
         text-decoration: underline;
     }
+}
+
+#experience-btns {
+    display: flex;
+    margin-top: 0.5em;
 }
 
 .table {

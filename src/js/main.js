@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchData();
 });
 
-const url = "http://127.0.0.1:3000/api/cv/experience";
+const url = "https://lab2-backend-xzxp.onrender.com/workexperience";
 
 //renderExperience();
 //createExperience();
@@ -71,7 +71,7 @@ export function renderExperience(experiences) {
             <h3>${exp.companyName} - ${exp.location}</h3>
             <h4>${exp.jobTitle}</h4>
             <p> <span class="span-description">Arbetsbeskrivning:</span> ${exp.description}
-            <div>
+            <div id="experience-btns">
             <button class="delete-btn">Radera</button>
             <button class="update-btn">Uppdatera</button>
             </div>
