@@ -20,8 +20,11 @@ nav {
     }
 }
 
-.nav-links:hover {
-    background-color: #1ac3ee;
+.nav-links {
+    transition: 0.3s ease;
+    &:hover {
+        background-color: #1ac3ee;
+    }
 }
 
 #current-page {

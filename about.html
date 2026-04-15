@@ -18,10 +18,20 @@
             </ul>
         </nav>
     </header>
-    <article class="about-article">
-        <h1>Om uppgiften</h1>
-        <p></p>
-    </article>
+    <main id="about-main">
+        <article class="about-article">
+            <h1>Om uppgiften</h1>
+            <p>På denna webbplats är det möjligt att se och lägga till arbetserfarenheter till sitt CV.</p>
+            <h2>Sidor för ditt CV</h2>
+            <p><strong>Hem (startsida):</strong> Här ser du ditt CV med tillagda jobb. Arbetsgivare, din arbetstitel, ort där arbetet utfördes samt en beskrivning.</p>
+            <p><strong>Lägg till i CV:</strong> Här kan du lägga till fler arbetserfarenheter till ditt CV genom ett formulär. Felmeddelanden dyker upp om tomma textfält försöker lagras.</p>
+            <h3>Hur fungerar det?</h3>
+            <p>Funktionen med denna tjänst är att skicka data mellan frontend, denna hemsida, till en backend-sida som använder sig av en databas. När användaren skickar formuläret för att lägga till en ny arbetserfarenhet, så skickas data till databas-servern
+                genom API-anrop (POST). Därefter hämtas datan från databas-servern genom ett nytt anrop och presenterar det sedan inom frontend. </p>
+            <h3>Databasserver & Reflektioner</h3>
+            <p>Jag valde att skapa min backend-webbplats genom databas-servern MySQL.</p>
+        </article>
+    </main>
     <footer>
         <p>2026 Filip B | Lab2.2 - Backend-baserad Webbutveckling</p>
     </footer>
