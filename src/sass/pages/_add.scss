@@ -58,29 +58,6 @@ textarea::placeholder {
     font-size: 1.2em;
 }
 
-form button {
-    padding: 1em 0.75em;
-    border-radius: 8px;
-    background-image: linear-gradient(to right, #caf3f19d, #2efc059c);
-    border: none;
-    margin-top: 1em;
-    cursor: pointer;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5em;
-    font-weight: bold;
-}
-
-form button:hover {
-    background-image: linear-gradient(to right, #6bd600e3, #9ffa93);
-}
-
-form button:active {
-    background-color: white;
-}
-
 #error-message {
     color: rgb(221, 4, 4);
     margin: 0 auto;

@@ -2,69 +2,150 @@ import { render } from 'sass';
 import '../sass/main.scss';
 "use strict";
 
+// Inputs inom HTML
 const companyInput = document.getElementById("company");
 const titleInput = document.getElementById("title");
 const locationInput = document.getElementById("location");
 const descriptionInput = document.getElementById("description");
 
+// Div-element för att skriva ut CV till
+const experienceList = document.getElementById("experience-list");
+
+// När DOM har laddats in körs funktionen för att hämta data från backend
 document.addEventListener("DOMContentLoaded", () => {
     fetchData();
+
+    // För att slippa ha inputs ifyllda inom formuläret med data från uppdateringen när användaren navigerar sig mellan sidorna
+    const linkBtns = document.querySelectorAll(".nav-links");
+    linkBtns.forEach(link => {
+        link.addEventListener("click", () => {
+            console.log("Du klickade på länken!");
+            localStorage.clear();
+        });
+    });
 });
 
+// Localhost-url
 const url = "http://127.0.0.1:5080/workexperience";
 
-//renderExperience();
-//createExperience();
-//deleteExperience();
-//updateExperience();
+/**
+ * För att hämta lagrad data inom databasservern (backend)
+ */
 async function fetchData() {
-    const response = await fetch(url)
-    const experiences = await response.json();
-
-    console.log(experiences);
-    renderExperience(experiences);
+    try {
+        const response = await fetch(url) // Använder urlen för att anropa innehållet
+        if (!response.ok) {
+            throw new Error(`Fel hos server ${response.status}`);
+        }
+        const experiences = await response.json(); // Sparar ned innehållet
+        renderExperience(experiences);
+    } catch (error) { // Om något blivit fel
+        console.error("Det gick inte att hämta data från servern: ", error);
+        experienceList.textContent = "Kunde inte hämta data från servern"; // Felmeddelande
+        experienceList.style.color = "red"; // Ger texten röd färg
+        experienceList.style.fontSize = "1.3em"; // Gör texten större
+    }
 }
-
-export async function createExperience(experience) {
-    const company = document.getElementById("company").value.trim();
-    const title = document.getElementById("title").value.trim();
-    const location = document.getElementById("location").value.trim();
-    const description = document.getElementById("description").value.trim();
+/**
+ * För att skapa och lägga till ett nytt arbete inom CV:et
+ */
+export async function createExperience() {
+    // Värdena inom varje input
+    const company = companyInput.value.trim();
+    const title = titleInput.value.trim();
+    const location = locationInput.value.trim();
+    const description = descriptionInput.value.trim();
 
     let experience = {
         companyName: company,
         jobTitle: title,
         location: location,
         description: description
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(experience)
+        });
+        // Om ingen respons ges
+        if (!response.ok) {
+            throw new Error(`Kunde inte lägga till en ny arbetserfarenhet. Försök igen`);
+        }
+        const data = await response.json(); // Sparar ned responsen
+        return data;
+    } catch (error) { // Felmeddelande om det misslyckas
+        console.error("Det gick inte att lägga till en ny arbetserfarenhet: ", error);
+        throw error;
     }
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "Application/json"
-        },
-        body: JSON.stringify(experience)
-    });
-
-    const data = await response.json();
-    console.log(data);
 }
-
+/**
+ * För att radera ett befintligt arbete som finns inom CV:et
+ * @param {*} id - Det befintliga arbetets ID, för att kunna radera
+ */
 async function deleteExperience(id) {
-    const response = await fetch("http://127.0.0.1:5080/workexperience/" + id, {
-        method: "DELETE"
-    });
-    const data = await response.json();
+    // Metod delete
+    try {
+        const response = await fetch("http://127.0.0.1:5080/workexperience/" + id, {
+            method: "DELETE"
+        });
+        // Om man inte fick en respons
+        if (!response.ok) {
+            throw new Error(`Det gick inte att radera den arbetserfarenheten`);
+        }
+        const data = await response.json();
+        console.log("Raderat arbete:", data); // Om man lyckats radera ett jobb visas det i konsollen samt inom frontend såklart
+    } catch (error) {
+        console.error("Det gick inte att radera den specifika arbetserfarenheten:", error);
+        throw error;
+    }
+}
+/**
+ * För att uppdatera ett befintligt arbete som finns inom CV:et
+ * @param {*} id - Det befintliga arbetets ID, för att kunna uppdatera
+ */
+export async function updateExperience(id) {
+    // Input-värden
+    const company = companyInput.value.trim();
+    const title = titleInput.value.trim();
+    const location = locationInput.value.trim();
+    const description = descriptionInput.value.trim();
+    // Sparar värdena som ett objekt
+    const updWorkExp = {
+        companyName: company,
+        jobTitle: title,
+        location: location,
+        description: description
+    };
+    // Försöker med att hämta det specifika arbetet ur CV inom databasservern
+    try {
+        const response = await fetch("http://127.0.0.1:5080/workexperience/" + id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updWorkExp)
+        });
+        // Om man inte fick en respons
+        if (!response.ok) {
+            throw new Error(`Det gick inte att uppdatera den arbetserfarenheten`);
+        }
+        const data = await response.json();
+    } catch (error) {
+        console.error("Det gick inte att uppdatera den specifika arbetserfarenheten:", error);
+        throw error;
+    }
 }
 
-async function updateExperience(id) {
-    const response = await fetch("http://127.0.0.1:5080/workexperience/" + id, {
-        method: "PUT"
-    });
-    const data = await response.json();
-}
-
+/**
+ * För att skriva ut varje objekt av arbetserfarenhet inom CV-listan
+ * @param {*} experiences - Array av objekt
+ * @returns - Void (returnerar inget)
+ */
 export function renderExperience(experiences) {
-    const experienceList = document.getElementById("experience-list");
     // Om användaren inte befinner sig på startsidan
     if (!experienceList) {
         return;
@@ -94,7 +175,18 @@ export function renderExperience(experiences) {
             const btnID = btn.dataset.id;
             await deleteExperience(btnID);
             fetchData();
-            console.log("Du klickade på knappen")
         })
+    });
+
+    // Alla knappar för att uppdatera ett befintligt arbete
+    const updateBtns = document.querySelectorAll(".update-btn");
+    updateBtns.forEach((btn) => {
+        btn.addEventListener("click", async() => {
+            const updBtnId = btn.dataset.id; // Ger variabeln det specifika id som varje "jobb-inlägg" har
+
+            // Sparar ned det specifika ID inom localstorage, som finns inom update-knappen genom dataset id
+            localStorage.setItem("updateWorkID", updBtnId);
+            window.location.href = "add.html"; // Navigerar till formulär-sidan
+        });
     });
 }
