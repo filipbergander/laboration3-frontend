@@ -69,7 +69,7 @@ export async function createExperience() {
     };
 
     try {
-        const response = await fetch(url, {
+        const response = await fetch("https://lab2-backend-xzxp.onrender.com/workexperience", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
