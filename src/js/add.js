@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async() => {
 
     // Om det finns något lagrat i localstorage med just den nyckeln
     if (updateWorkID) {
-        const response = await fetch(`http://localhost:3000/workexperience/${updateWorkID}`); // Använder key inom anropet
+        const response = await fetch(`https://lab2-backend-xzxp.onrender.com/workexperience/${updateWorkID}`); // Använder key inom anropet
         const data = await response.json(); // Array av objekt som hämtas via anropet
 
         // Sätter värden för inputs utefter värdena inom databasen för det specifika id

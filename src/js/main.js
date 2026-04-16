@@ -27,15 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Localhost-url
-const url = "http://localhost:3000/workexperience";
-
 /**
  * För att hämta lagrad data inom databasservern (backend)
  */
 async function fetchData() {
     try {
-        const response = await fetch(url) // Använder urlen för att anropa innehållet'
+        const response = await fetch("https://lab2-backend-xzxp.onrender.com/workexperience") // Använder urlen för att anropa innehållet'
         console.log("RESPONSEN: ", response);
         if (!response.ok) {
             throw new Error(`Fel hos server ${response.status}`);
@@ -98,7 +95,7 @@ export async function createExperience() {
 async function deleteExperience(id) {
     // Metod delete
     try {
-        const response = await fetch("http://localhost:3000/workexperience/" + id, {
+        const response = await fetch("https://lab2-backend-xzxp.onrender.com/workexperience/" + id, {
             method: "DELETE"
         });
         // Om man inte fick en respons
@@ -135,7 +132,7 @@ export async function updateExperience(id) {
     };
     // Försöker med att hämta det specifika arbetet ur CV inom databasservern
     try {
-        const response = await fetch("http://localhost:3000/workexperience/" + id, {
+        const response = await fetch("https://lab2-backend-xzxp.onrender.com/workexperience/" + id, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
