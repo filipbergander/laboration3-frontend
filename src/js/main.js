@@ -85,6 +85,7 @@ export async function createExperience() {
         }
         const data = await response.json(); // Sparar ned responsen
         return data;
+
     } catch (error) { // Felmeddelande om det misslyckas
         console.error("Det gick inte att lägga till en ny arbetserfarenhet: ", error);
         throw error;

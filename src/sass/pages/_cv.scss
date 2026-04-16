@@ -42,12 +42,41 @@
     }
 }
 
+#pop-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: fixed;
+    padding: 1em;
+    text-align: center;
+    background-color: greenyellow;
+    width: 15%;
+    bottom: 10vh;
+    right: 0vh;
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity 1.5s ease, transform 1.5s ease, right 2.5s ease;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+#pop-up.visible {
+    opacity: 1;
+    right: 2vh;
+    visibility: visible;
+}
+
 @media screen and (max-width: 768px) {
     .experience-item {
         padding: 1em;
     }
     #experiences-container {
         padding: 1em 3em 3em;
+    }
+    #pop-up {
+        font-size: 0.9em;
+        width: 30%;
     }
 }
 
@@ -58,4 +87,8 @@
     }
 }
 
-@media screen and (max-width: 370px) {}
+@media screen and (max-width: 370px) {
+    #pop-up {
+        width: 30%;
+    }
+}

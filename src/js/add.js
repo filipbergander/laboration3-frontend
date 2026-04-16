@@ -7,6 +7,7 @@ import { updateExperience } from "./main.js";
 // Formulär och felmeddelande-lista
 const errorMsgList = document.getElementById("error-message");
 const addExpForm = document.getElementById("add-experience-form");
+
 // Knapp för att lägga till/uppdatera erfarenhet
 const addWorkBtn = document.getElementById("add-work-btn");
 const svgIcon = document.getElementById("svg-icon");
@@ -32,8 +33,8 @@ document.addEventListener("DOMContentLoaded", async() => {
         endDateInput.value = "";
     }
 
-    // Om det finns något lagrat i localstorage
-    if (localStorage.length > 0) {
+    // Om det finns något lagrat i localstorage med just den nyckeln
+    if (updateWorkID) {
         const response = await fetch(`http://localhost:3000/workexperience/${updateWorkID}`); // Använder key inom anropet
         const data = await response.json(); // Array av objekt som hämtas via anropet
 
@@ -102,7 +103,8 @@ addExpForm.addEventListener("submit", async(e) => {
     if (updateWorkID) {
         await updateExperience(updateWorkID); // Körs funktionen för att uppdatera ett befintligt arbete i CV genom key ID 
         localStorage.removeItem("updateWorkID"); // Tar bort key från localstorage
-
+        window.location.href = "index.html";
+        return;
     } else {
         await createExperience(); // Annars anropas funktionen för att skapa en ny arbetserfarenhet till CV 
         // Tömmer inputs, inte helt nödvändigt eftersom man blir redirected till index.html
@@ -115,8 +117,8 @@ addExpForm.addEventListener("submit", async(e) => {
         errorMsgList.innerHTML = "";
     }
     // Redirect om allt gått bra, antingen för update eller när man lägger till ett nytt jobb
-    window.location.href = "index.html";
-
+    //window.location.href = "index.html";
+    showPopUp();
 });
 // Visar felmeddelanden 
 export function displayErrorMsg(errors) {
@@ -127,4 +129,15 @@ export function displayErrorMsg(errors) {
         li.textContent = error; // Ger varje li error-innehållet
         errorMsgList.appendChild(li); // Lägger till varje li inom listan
     });
+}
+
+function showPopUp() {
+    const popUp = document.getElementById("pop-up");
+    if (!popUp) {
+        return;
+    }
+    popUp.classList.add("visible"); // Lägger till klassen visible som gör att pop-upen visas
+    setTimeout(() => {
+        popUp.classList.remove("visible");
+    }, 4000);
 }

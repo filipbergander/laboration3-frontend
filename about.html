@@ -23,13 +23,21 @@
             <h1>Om uppgiften</h1>
             <p>På denna webbplats är det möjligt att se och lägga till arbetserfarenheter till sitt CV.</p>
             <h2>Sidor för ditt CV</h2>
-            <p><strong>Hem (startsida):</strong> Här ser du ditt CV med tillagda jobb. Arbetsgivare, din arbetstitel, ort där arbetet utfördes samt en beskrivning.</p>
-            <p><strong>Lägg till i CV:</strong> Här kan du lägga till fler arbetserfarenheter till ditt CV genom ett formulär. Felmeddelanden dyker upp om tomma textfält försöker lagras.</p>
+            <p><strong>Hem (startsida):</strong> Här ser du ditt CV med jobb som du lagt till. Arbetsgivare, din arbetstitel, ort, beskrivning samt start- och slutdatum för det specifika arbetet.</p>
+            <p><strong>Lägg till i CV:</strong> Under denna sida kan du lägga till fler arbetserfarenheter till ditt CV genom ett formulär. Felmeddelanden dyker upp om tomma textfält försöker lagras.</p>
             <h3>Hur fungerar det?</h3>
             <p>Funktionen med denna tjänst är att skicka data mellan frontend, denna hemsida, till en backend-sida som använder sig av en databas. När användaren skickar formuläret för att lägga till en ny arbetserfarenhet, så skickas data till databas-servern
                 genom API-anrop (POST). Därefter hämtas datan från databas-servern genom ett nytt anrop och presenterar det sedan inom frontend. </p>
-            <h3>Databasserver & Reflektioner</h3>
-            <p>Jag valde att skapa min backend-webbplats genom databas-servern MySQL.</p>
+            <h3>Databasserver</h3>
+            <p>Jag valde att skapa min backend-webbplats först genom DBMS MySQL. Därefter fick jag svårigheter att publicera servern. Jag prövade olika hosts tillsammans med Render. T.ex HelioHost, Railway och Azure.</p>
+            <p>Efter mycket testande och felsökning valde jag att ändra min DBMS till PostgreSQL. Min JavaScript-kod som ligger i backend ändrades också för att lämpa sig med just PostgreSQL. Slutligen publicerade jag min backend-sida på Render tillsammans
+                med en databas där. Miljövariabler användes för att ansluta.</p>
+            <h3>Reflektioner</h3>
+            <p>Mycket försök gjordes för att kunna publicera min backend-sida med DBMS MySQL. Jag upplevde denna process som mest tidskrävande inom laborationen.</p>
+            <p>Jag uppskattar att man haft databasteknik-kursen sedan tidigare. Det gör att man förstår syntax och funktionerna inom "databasspråket" på ett bättre vis.</p>
+            <p>Det är roligt med databaser och speciellt att se när data skapas samt raderas och uppdateras i realtid mellan en frontend- och backend-sida. Det gav en annan förståelse sedan innan momentet. Det är smidigt att kunna testa databasen genom localhost.
+                Jag använde mig även av Thunderclient tidigt i laborationen för att se över CRUD-anropen</p>
+            <p>Till en början hade jag inte med datum, men jag kände att det kan vara roligt att se och valde därför att lägga till det. Validering gjordes också för att se till att startdatum är innan slutdatumet</p>
         </article>
     </main>
     <footer>
