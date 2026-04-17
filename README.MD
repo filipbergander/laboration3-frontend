@@ -7,6 +7,8 @@ Totalt finns det tre sidor som går att navigera mellan.
 - **Lägg till i CV:** här finns ett forumlär med fyra textfält för att lägga till en ny post i CV:et.
 - **Om uppgiften:** här beskrivs mitt arbete med uppgiften och webbplatsens funktionalitet och syfte.
 
+**Webbplats:** https://lab2backend-frontend.netlify.app/
+
 ## Funktionalitet
 Möjligheten att radera och uppdatera ett befintligt jobb-inlägg finns medtaget. Dessa komponenter ligger som knappar inom varje jobb-inlägg. Inom båda knapparna finns ID lagrat för respektive post. När en knapp klickas, skickas knappens ID som argument mot respektive funktion.
 
