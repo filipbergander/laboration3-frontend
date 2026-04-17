@@ -2,7 +2,7 @@
 <html lang="sv">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Om uppgiften</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap">
@@ -26,12 +26,12 @@
             <p><strong>Hem (startsida):</strong> Här ser du ditt CV med jobb som du lagt till. Arbetsgivare, din arbetstitel, ort, beskrivning samt start- och slutdatum för det specifika arbetet.</p>
             <p><strong>Lägg till i CV:</strong> Under denna sida kan du lägga till fler arbetserfarenheter till ditt CV genom ett formulär. Felmeddelanden dyker upp om tomma textfält försöker lagras.</p>
             <h3>Hur fungerar det?</h3>
-            <p>Funktionen med denna tjänst är att skicka data mellan frontend, denna hemsida, till en backend-sida som använder sig av en databas. När användaren skickar formuläret för att lägga till en ny arbetserfarenhet, så skickas data till databas-servern
-                genom API-anrop (POST). Därefter hämtas datan från databas-servern genom ett nytt anrop och presenterar det sedan inom frontend. </p>
+            <p>Denna tjänst skickar data mellan frontend (denna hemsida) till en backend-sida som är ansluten mot en databas. När användaren skickar formuläret, för att lägga till en ny arbetserfarenhet, så skickas data till databas-servern genom API-anrop
+                (POST). Därefter hämtas datan från databas-servern genom ett nytt anrop (GET) och presenterar det sedan inom frontend. </p>
             <h3>Databasserver</h3>
-            <p>Jag valde att skapa min backend-webbplats först genom DBMS MySQL. Därefter fick jag svårigheter att publicera servern. Jag prövade olika hosts tillsammans med Render. T.ex HelioHost, Railway och Azure.</p>
+            <p>Jag valde att skapa min backend-webbplats till en början genom DBMS MySQL. Därefter fick jag svårigheter att publicera servern. Jag prövade olika hosts tillsammans med Render. T.ex HelioHost, Railway och Azure.</p>
             <p>Efter mycket testande och felsökning valde jag att ändra min DBMS till PostgreSQL. Min JavaScript-kod som ligger i backend ändrades också för att lämpa sig med just PostgreSQL. Slutligen publicerade jag min backend-sida på Render tillsammans
-                med en databas där. Miljövariabler användes för att ansluta.</p>
+                med en databas där. Miljövariabler användes för att kunna ansluta.</p>
             <h3>Reflektioner</h3>
             <p>Mycket försök gjordes för att kunna publicera min backend-sida med DBMS MySQL. Jag upplevde denna process som mest tidskrävande inom laborationen.</p>
             <p>Jag uppskattar att man haft databasteknik-kursen sedan tidigare. Det gör att man förstår syntax och funktionerna inom "databasspråket" på ett bättre vis.</p>
