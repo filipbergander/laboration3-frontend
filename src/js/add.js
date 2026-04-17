@@ -115,6 +115,7 @@ addExpForm.addEventListener("submit", async(e) => {
         startDateInput.value = "";
         endDateInput.value = "";
         errorMsgList.innerHTML = "";
+
     }
     // Redirect om allt gått bra, antingen för update eller när man lägger till ett nytt jobb
     //window.location.href = "index.html";

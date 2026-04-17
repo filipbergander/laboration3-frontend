@@ -182,17 +182,6 @@ export function renderExperience(experiences) {
         `
     });
 
-    // Hämtar in alla knappar som är renderade
-    const deleteBtns = document.querySelectorAll(".delete-btn");
-    // Eventlyssnare på varje knapp
-    deleteBtns.forEach((btn) => {
-        btn.addEventListener("click", async() => {
-            const btnID = btn.dataset.id;
-            await deleteExperience(btnID);
-            fetchData();
-        })
-    });
-
     // Alla knappar för att uppdatera ett befintligt arbete
     const updateBtns = document.querySelectorAll(".update-btn");
     updateBtns.forEach((btn) => {
@@ -205,3 +194,12 @@ export function renderExperience(experiences) {
         });
     });
 }
+
+// Eventlyssnare för att radera en specifik CV-post
+document.addEventListener("click", async(event) => {
+    if (event.target.classList.contains("delete-btn")) {
+        const btnID = event.target.dataset.id; // Hämtar in det specifika ID som knappen fått när den skapades
+        await deleteExperience(btnID); // Ger btn-id som argument mot funktionen
+        event.target.closest("article").remove(); // Tar bort artikeln som knappen ligger inuti
+    }
+});
