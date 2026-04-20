@@ -10,6 +10,9 @@ const descriptionInput = document.getElementById("description");
 const startDateInput = document.getElementById("start-date");
 const endDateInput = document.getElementById("end-date");
 
+// Global url
+export const url = "http://127.0.0.1:3000";
+
 // Div-element för att skriva ut CV till
 const experienceList = document.getElementById("experience-list");
 
@@ -52,15 +55,15 @@ document.addEventListener("click", async(event) => {
 async function fetchData() {
     experienceList.textContent = "Hämtar data från servern. Vänta lite för att servern ska vakna till liv."; // Felmeddelande
     try {
-        const response = await fetch("https://lab2-backend-xzxp.onrender.com/workexperience") // Använder urlen för att anropa innehållet'
+        const response = await fetch(`${url}/workexperiences`) // Använder urlen för att anropa innehållet
         if (!response.ok) {
             throw new Error(`Fel hos server ${response.status}`);
         }
         const experiences = await response.json(); // Sparar ned innehållet
         experienceList.textContent = ""; // Tömmer listan innan data från servern läggs till i DOM
-
         renderExperience(experiences);
     } catch (error) { // Om något blivit fel
+        console.log(error);
         console.error("Det gick inte att hämta data från servern: ", error);
         experienceList.textContent = "Kunde inte hämta data från servern. Prova igen senare eller lägg till ett nytt jobb i ditt CV."; // Felmeddelande
         experienceList.style.color = "red"; // Ger texten röd färg
@@ -88,7 +91,7 @@ export async function createExperience() {
     };
 
     try {
-        const response = await fetch("https://lab2-backend-xzxp.onrender.com/workexperience", {
+        const response = await fetch(`${url}/workexperiences`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -114,7 +117,7 @@ export async function createExperience() {
 async function deleteExperience(id) {
     // Metod delete
     try {
-        const response = await fetch("https://lab2-backend-xzxp.onrender.com/workexperience/" + id, {
+        const response = await fetch(`${url}/workexperiences/` + id, {
             method: "DELETE"
         });
         // Om man inte fick en respons
@@ -151,7 +154,7 @@ export async function updateExperience(id) {
     };
     // Försöker med att hämta det specifika arbetet ur CV inom databasservern
     try {
-        const response = await fetch("https://lab2-backend-xzxp.onrender.com/workexperience/" + id, {
+        const response = await fetch(`${url}/workexperiences/` + id, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

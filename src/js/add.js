@@ -3,6 +3,7 @@
 import { renderExperience } from "./main.js";
 import { createExperience } from "./main.js";
 import { updateExperience } from "./main.js";
+import { url } from "./main.js"
 
 // Formulär och felmeddelande-lista
 const errorMsgList = document.getElementById("error-message");
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async() => {
 
     // Om det finns något lagrat i localstorage med just den nyckeln
     if (updateWorkID) {
-        const response = await fetch(`https://lab2-backend-xzxp.onrender.com/workexperience/${updateWorkID}`); // Använder key inom anropet
+        const response = await fetch(`${url}/workexperiences/${updateWorkID}`); // Använder key inom anropet
         const data = await response.json(); // Array av objekt som hämtas via anropet
 
         // Sätter värden för inputs utefter värdena inom databasen för det specifika id
@@ -83,9 +84,9 @@ addExpForm.addEventListener("submit", async(e) => {
     if (startDate === "") {
         errors.push("Välj ett startdatum för arbetet!")
     }
-    if (endDate === "") {
-        errors.push("Välj ett slutdatum för arbetet!")
-    }
+    /* if (endDate === "") {
+         errors.push("Välj ett slutdatum för arbetet!")
+     }*/
 
     if (startDate > endDate) {
         errors.push("Startdatumet kan inte vara efter slutdatumet!")
@@ -115,7 +116,6 @@ addExpForm.addEventListener("submit", async(e) => {
         startDateInput.value = "";
         endDateInput.value = "";
         errorMsgList.innerHTML = "";
-
     }
     // Redirect om allt gått bra, antingen för update eller när man lägger till ett nytt jobb
     //window.location.href = "index.html";
