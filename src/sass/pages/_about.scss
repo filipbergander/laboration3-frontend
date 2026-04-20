@@ -11,7 +11,7 @@
     margin: 0 auto;
     margin-top: 1em;
     padding: 2em 3em;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(171, 245, 239);
     border-radius: 16px;
     box-shadow: 0 0 12px 1px black;
     h1 {
@@ -28,6 +28,15 @@
         margin: 0 auto;
         margin-bottom: 1em;
     }
+}
+
+.about-list {
+    margin-top: 0;
+    list-style-position: inside;
+    text-align: left;
+    overflow: hidden;
+    padding-left: 0;
+    margin-bottom: 1em;
 }
 
 @media screen and (max-width: 768px) {
