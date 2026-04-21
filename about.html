@@ -26,31 +26,30 @@
     </header>
     <main id="about-main">
         <article class="about-article">
-            <h1>Om uppgiften</h1>
+            <h1>Laboration 3</h1>
+            <h2>Om uppgiften</h2>
             <p>Jag har vidareutvecklat den tidigare skapade webbplatsen (Laboration-2) för att nu kunna ansluta mot en MongoDB webbplats i stället för PostgreSQL.</p>
             <p>Förändringar jag gjort för denna frontend-sida:</p>
             <ul class="about-list">
                 <li>Uppdaterat routes och URL efter den nya backend-sidan.</li>
                 <li>Möjlighet att lägga till ett jobb som man fortfarande är anställd på. </li>
             </ul>
-            <h2>Uppgiftens syfte</h2>
-            <p>Genom webbplatsen är det möjligt att se och lägga till arbetserfarenheter till sitt CV.</p>
+            <h2>Uppgiftens syfte & databas</h2>
+            <p>Jag har skapat en webbplats där det är möjligt att se sitt CV och lägga till fler arbetserfarenheter till sitt CV.</p>
+            <p>Databasservern som användes var MongoDB, samt verktyget Mongoose inom backend-sidan. Mongoose användes för att hantera CRUD-operationer, och kunna ansluta mot databasen.</p>
+            <p>Ett schema skapades för att visa strukturen på databasen, hur den är uppbyggd med sina fält. Fälten i schemat visar hur data som hämtas in från formuläret ska lagras i databasen. Vilka datatyper de är, t.ex strängar och datum.</p>
+            <p>Jag valde MongoDB Atlas för att hosta min databas. Det upplevdes enkelt och jag gillade särskilt strukturen på deras plattform. Backend-sidan laddades sedan upp till Render med miljövariabler från MongoDB Atlas och samtidigt genom Github.
+            </p>
             <h3>Sidor för ditt CV</h3>
             <p><strong>CV (startsida):</strong> Här ser du ditt CV med jobb som du lagt till. Arbetsgivare, din arbetstitel, ort, beskrivning samt start- och slutdatum för det specifika arbetet.</p>
             <p><strong>Lägg till i CV:</strong> Under denna sida kan du lägga till fler arbetserfarenheter till ditt CV genom ett formulär. Felmeddelanden dyker upp om tomma textfält försöker lagras.</p>
             <h3>Hur fungerar det?</h3>
-            <p>Denna tjänst skickar data mellan frontend (denna hemsida) till en backend-sida som är ansluten mot en databas. När användaren skickar formuläret, för att lägga till en ny arbetserfarenhet, så skickas data till databas-servern genom API-anrop
+            <p>Denna tjänst skickar data mellan frontend (denna hemsida) till en backend-sida som är ansluten mot databasen. När användaren skickar formuläret, för att lägga till en ny arbetserfarenhet, så skickas data till databas-servern genom API-anrop
                 (POST). Därefter hämtas datan från databas-servern genom ett nytt anrop (GET) och presenterar det sedan inom frontend. </p>
-            <h3>Databasserver</h3>
-            <p>Jag valde att skapa min backend-webbplats till en början genom DBMS MySQL. Därefter fick jag svårigheter att publicera servern. Jag prövade olika hosts tillsammans med Render. T.ex HelioHost, Railway och Azure.</p>
-            <p>Efter mycket testande och felsökning valde jag att ändra min DBMS till PostgreSQL. Min JavaScript-kod som ligger i backend ändrades också för att lämpa sig med just PostgreSQL. Slutligen publicerade jag min backend-sida på Render tillsammans
-                med en databas där. Miljövariabler användes för att kunna ansluta.</p>
             <h3>Reflektioner</h3>
-            <p>Mycket försök gjordes för att kunna publicera min backend-sida med DBMS MySQL. Jag upplevde denna process som mest tidskrävande inom laborationen.</p>
-            <p>Jag uppskattar att man haft databasteknik-kursen sedan tidigare. Det gör att man förstår syntax och funktionerna inom "databasspråket" på ett bättre vis.</p>
-            <p>Det är roligt med databaser och speciellt att se när data skapas samt raderas och uppdateras i realtid mellan en frontend- och backend-sida. Det gav en annan förståelse sedan innan momentet. Det är smidigt att kunna testa databasen genom localhost.
-                Jag använde mig även av Thunderclient tidigt i laborationen för att se över CRUD-anropen</p>
-            <p>Till en början hade jag inte med datum, men jag kände att det kan vara roligt att se och valde därför att lägga till det. Validering gjordes också för att se till att startdatum är innan slutdatumet</p>
+            <p>Att arbeta med MongoDB och Mongoose var enklare än att arbeta med relationsdatabaser. Jag tyckte gränssnittet var mer användarvänligt. Exempelvis använde jag MongoDB Compass för att se över databasen, vilket jag upplevde var ett användbart
+                verktyg, särskilt i jämförelse med "PgAdmin" och PostgreSQL Explorer inom VSC.</p>
+            <p>Däremot är jag mer bekant med SQL-frågor och de databaserna, särskilt MySQL, eftersom jag arbetat mer med det tidigare. Jag tror MongoDB kommer lämpa sig väl för framtida arbeten. </p>
         </article>
     </main>
     <footer>

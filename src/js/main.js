@@ -11,7 +11,7 @@ const startDateInput = document.getElementById("start-date");
 const endDateInput = document.getElementById("end-date");
 
 // Global url
-export const url = "http://127.0.0.1:3000";
+export const url = "https://laboration3-backend.onrender.com";
 
 // Div-element för att skriva ut CV till
 const experienceList = document.getElementById("experience-list");
