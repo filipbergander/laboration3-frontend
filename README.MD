@@ -1,11 +1,11 @@
 # Laboration 3 | Backend-baserad Webbutveckling (Frontend)
-Inom denna uppgift skapar jag en frontend-webbplats med hjälp av HTML, Sass (SCSS), samt JavaScript och VITE. Syftet med webbplatsen är att kunna se sitt CV samt lägga till fler arbetserfarenheter i CV:et. Hemsidan uppdaterar sitt innehåll genom att ansluta mot en databas genom API-anrop. Databasen som användes till en början var MySQL, detta ändrades senare till PostgreSQL för att kunna publicera sidan enklare. Redan sparad data hämtas in från databasen genom ett fetch-anrop (GET). Data skapas, raderas och uppdateras på nytt genom ytterligare anrop och funktioner med metoderna POST, DELETE och PUT. 
+Inom denna uppgift använder jag samma hemsida som i tidigare uppgift (laboration 2) men gör några förändringar för att skilja på dem. Exempelvis lite färger och anslutningar mot den nya webbtjänsten som skapats i backend. Frontend-webbplatsen har skapats med hjälp av HTML, Sass (SCSS), samt JavaScript och VITE. Syftet med webbplatsen är att kunna se sitt CV samt lägga till fler arbetserfarenheter i CV:et. Hemsidan uppdaterar sitt innehåll genom att ansluta mot en databas genom API-anrop. Databasen som användes var MongoDB tillsammans med MongoDB Atlas. Redan sparad data hämtas in från databasen genom ett fetch-anrop (GET). Data skapas, raderas och uppdateras på nytt genom ytterligare anrop och funktioner med metoderna POST, DELETE och PUT. 
 
 Totalt finns det tre sidor som går att navigera mellan.
 
 - **CV:** här presenteras CV:et.
 - **Lägg till i CV:** här finns ett forumlär med fyra textfält för att lägga till en ny post i CV:et.
-- **Om uppgiften:** här beskrivs mitt arbete med uppgiften och webbplatsens funktionalitet och syfte.
+- **Om uppgiften:** här beskrivs mitt arbete med uppgiften och webbplatsens funktionalitet och syfte, samt databasen.
 
 **Webbplats:** https://lab3backend-frontend.netlify.app/
 
@@ -15,9 +15,3 @@ Möjligheten att radera och uppdatera ett befintligt jobb-inlägg finns medtaget
 När en uppdatera-knapp klickas, navigeras användaren till sidan med formuläret. Där är uppgifterna redan ifyllda och skiljer sig beroende på ID för inlägget som man klickade vid. Jag valde att spara ned det klickade ID:et till localStorage för att kunna använda mot funktionerna som argument.
 
 Likadan logik är inom knappen för radera, där ID för knappen används som argument för funktionen till att radera ett jobb-inlägg. Ingen navigering sker vid klick på denna knapp utan innehållet uppdateras automatiskt.
-
-### Tanke i efterhand
-För att lägga till ett nytt jobb till sitt CV krävs det slutdatum. I en verklig situation kanske man inte ska behöva skriva ett slutdatum, eftersom man som användare möjligtvis vill söka ett nytt jobb med sitt CV fastän man fortfarande har en pågående tjänst. 
-
-## Notering
-Eftersom jag använder tjänsten Render för att publicera min backend-sida kan det ta lite tid till en början för att ladda in webbplatsens innehåll. Detta eftersom den går in i viloläge automatiskt när inte tjänsten används. Första sidladdningen kan därmed upplevas långsam.
