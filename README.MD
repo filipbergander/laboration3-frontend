@@ -1,5 +1,7 @@
 # Laboration 3 | Backend-baserad Webbutveckling (Frontend)
-Inom denna uppgift använder jag samma hemsida som i tidigare uppgift (laboration 2) men gör några förändringar för att skilja på dem. Exempelvis lite färger och anslutningar mot den nya webbtjänsten som skapats i backend. Frontend-webbplatsen har skapats med hjälp av HTML, Sass (SCSS), samt JavaScript och VITE. Syftet med webbplatsen är att kunna se sitt CV samt lägga till fler arbetserfarenheter i CV:et. Hemsidan uppdaterar sitt innehåll genom att ansluta mot en databas genom API-anrop. Databasen som användes var MongoDB tillsammans med MongoDB Atlas. Redan sparad data hämtas in från databasen genom ett fetch-anrop (GET). Data skapas, raderas och uppdateras på nytt genom ytterligare anrop och funktioner med metoderna POST, DELETE och PUT. 
+Inom denna uppgift använder jag samma hemsida som i tidigare uppgift (laboration 2) men gör några förändringar för att skilja på dem. Exempelvis lite färger och anslutningar mot den nya webbtjänsten som skapats i backend. 
+
+Frontend-webbplatsen har skapats med hjälp av HTML, Sass (SCSS), samt JavaScript och VITE. Syftet med webbplatsen är att kunna se sitt CV samt lägga till fler arbetserfarenheter i CV:et. Hemsidan uppdaterar sitt innehåll genom att ansluta mot en databas genom API-anrop. Databasen som användes var MongoDB tillsammans med MongoDB Atlas. Redan sparad data hämtas in från databasen genom ett fetch-anrop (GET). Data skapas, raderas och uppdateras på nytt genom ytterligare anrop och funktioner med metoderna POST, DELETE och PUT. 
 
 Totalt finns det tre sidor som går att navigera mellan.
 
